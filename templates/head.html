@@ -1,0 +1,42 @@
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  <!--반응형!!!-->
+    <title>Pragmatic</title>
+
+    <!-- 부트스트랩 css 링크 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- 구글 폰트 link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+
+    <!-- DEFAULT CSS LINK (css를 전체 템플릿에서 샤용 가능)-->
+    <link rel="stylesheet" type="text/css" href="{% static 'bass.css' %}?after">    {# 중요!!! 뒤에 ?after을 추가해 주어야 변경 전 css를 캐시데이터로 저장하여 사용하는 브라우저를 css를 수정한대로 바로바로 적용할 수 있다 #}
+
+    <style> {# 스태틱의 폰트 폴더 안에 있는 폰트들은 이렇게 head에 정의해서 그 html에서 사용 가능 #}
+        @font-face {
+            font-family: 'NanumSquareB';
+            src: local('NanumSquareB'),
+            url("{% static 'fonts/NanumSquare_acB.ttf' %}") format("opentype");
+        }
+        @font-face {
+            font-family: 'NanumSquareEB';
+            src: local('NanumSquareEB'),
+            url("{% static 'fonts/NanumSquare_acEB.ttf' %}") format("opentype");
+        }
+        @font-face {
+            font-family: 'NanumSquareL';
+            src: local('NanumSquareL'),
+            url("{% static 'fonts/NanumSquare_acL.ttf' %}") format("opentype");
+        }
+        @font-face {
+            font-family: 'NanumSquareR';
+            src: local('NanumSquareR'),
+            url("{% static 'fonts/NanumSquare_acR.ttf' %}") format("opentype");
+        }
+    </style>
+</head>

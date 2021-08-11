@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <div style="text-align: center; max-width: 500px; margin: 4rem auto;">
+            {#        <p>#}
+            {#            {{ target_user.date_joined }} {# 내 유저정보! #}
+            {#        </p>#}
+
+            {% if target_user.profile %} {# 닉네임 있으면 그걸 불러옴 #}
+                <img src="{{ target_user.profile.image.url }}" alt=""
+                     style="height: 12rem; width: 12rem; border-radius: 20rem; margin-bottom: 2rem;"> {# 이미지 출력 #}
+
+                <h2 style="font-family: 'NanumSquareB'">
+                    {{ target_user.profile.nickname }}
+                    {% if target_user == user %}
+                        <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
+                            edit
+                        </a>
+                    {% endif %}
+                </h2>
+                <h5 style="margin-bottom: 3rem;">
+                    {{ target_user.profile.message }}
+                </h5>
+            {% else %}
+                {% if target_user == user %}
+                    <a href="{% url 'profileapp:create' %}">    {# 프로필 만드는 페이지로 연결#}
+                        <h2 style="font-family: 'NanumSquareB'">
+                            Create Profile
+                        </h2>
+                    </a>
+                {% else %}
+                    <h2>닉네임 미설정</h2>
+                {% endif %}
+            {% endif %}
+
+
+
+            {% if target_user == user %}
+                <a href="{% url 'accountap:update' pk=user.pk %}">  {# 수정 페이지로 연결 #}
+                    <p>
+                        Change Info
+                    </p>
+                </a>
+                <a href="{% url 'accountap:delete' pk=user.pk %}">  {# 회원탈퇴 페이지로 연결 #}
+                    <p>
+                        Quit
+                    </p>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

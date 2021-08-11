@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+
+    <div style="text-align: center; max-width: 500px; margin: 4rem auto;">
+        <div>
+            <h4>Login</h4>
+        </div>
+        <div>
+            <form action="" method="post">
+                {% csrf_token %}
+{#                {{ form }}#}
+                {% bootstrap_form form %}   {# form 대신 부트스트랩 4 적용된 form 이용(설치) #}
+                <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3"> {# 버튼 검은색에 둥그렇게, 너비 부모div의 길이의 반만큼(col-12면 그대로, col-3이면 4분의 1만큼), margin top의 기존 길이의 3배만큼 적용 #}
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+{% include 'head.html' %}   <!-- 고정은 include 구문으로 html나눠서 채우기 -->
+
+<body style="font-family: 'NanumSquareR';"> <!-- body 내부 모두 나눔글꼴으로 적용-->
+
+{% include 'header.html' %}
+
+<hr>
+
+{% block content %}
+
+{% endblock %}
+
+<hr>
+
+{% include 'footer.html' %}
+
+</body>
+</html>

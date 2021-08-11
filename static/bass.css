@@ -1,0 +1,24 @@
+/*파일 이름.. base인데 bass로 오타났디*/
+
+.pragmatic_logo {
+    font-family: 'Cinzel', serif;
+}
+
+.pragmatic_footer_button {
+    font-size: .9rem;
+}
+
+.pragmatic_footer {
+    text-align: center; margin-top: 2rem;
+}
+
+.pragmatic_header {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+@media screen and (max-width: 500px) {  /*미디어 쿼리! 전체 창 크기가 작아지면 글씨도 작아지게*/
+    html {
+        font-size: 13px;
+    }
+}

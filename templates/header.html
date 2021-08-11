@@ -1,0 +1,29 @@
+<!-- 프론트엔드 윗부분 고정 -->
+
+<div class="pragmatic_header">   <!-- margin 값 앞은 상하, 뒤는 좌우-->
+    <div>
+        <h1 class="pragmatic_logo">Pragmatic</h1>    <!-- font-family는 구글폰트 적용시 필요함 -->
+    </div>
+    <div>
+        <a href="{% url 'articleapp:list' %}">  {# 작업 후 원래 있있었던 페이지로 돌아옴 #}
+                <span>Articles</span> {# 로그인 표시 #}
+            </a>
+        <span>nav2</span>
+        <span>nav3</span>
+        {% if not user.is_authenticated %}  {# 로그인이 되어있지 않다면  #}
+            <a href="{% url 'accountap:login' %}?next={{ request.path }}">  {# 작업 후 원래 있있었던 페이지로 돌아옴 #}
+                <span>login</span> {# 로그인 표시 #}
+            </a>
+            <a href="{% url 'accountap:create' %}">  {# 작업 후 원래 있있었던 페이지로 돌아옴 #}
+                <span>SignUp</span> {# 로그인 표시 #}
+            </a>
+        {% else %}  {# 로그인 되어있으면 #}
+            <a href="{% url 'accountap:detail' pk=user.pk %}"> {# pk 지정 안해주면 에러남 #}
+                <span>MyPage</span> {# 로그아웃 표시 #}
+            </a>
+            <a href="{% url 'accountap:logout' %}?next={{ request.path }}">
+                <span>logout</span> {# 로그아웃 표시 #}
+            </a>
+        {% endif %}
+    </div>
+</div>
